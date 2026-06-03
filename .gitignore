@@ -1,0 +1,40 @@
+# Python
+__pycache__/
+*.py[cod]
+.python-version
+.venv/
+venv/
+env/
+
+# Local environment and editor files
+.env
+.env.*
+.agents/
+.codex/
+.idea/
+.vscode/
+
+# Local datasets and dataset caches
+data.yaml
+datasets/
+Dataset_Leaf_Yolo26/
+*.cache
+
+# Benchmark outputs
+benchmark_runs/
+benchmark_results.csv
+benchmark_results.xlsx
+benchmark_run.log
+benchmark_run.pid
+runs/
+wandb/
+
+# Model weights and exported artifacts
+*.pt
+*.pth
+*.onnx
+*.engine
+*.torchscript
+*.tflite
+*.pb
+*.mlpackage
