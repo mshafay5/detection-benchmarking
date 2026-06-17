@@ -39,7 +39,8 @@ The repository currently focuses on YOLO and RT-DETR models, but it is intended 
 
 ```text
 detection-benchmarking/
-├── benchmark_models.py       # Main benchmarking script
+├── yolo_benchmark_models.py       # Main benchmarking script for yolo models
+├── rtdetr_benchmark.py       # Main benchmarking script for RT-DETR models (huggingface)
 ├── data.example.yaml         # Example YOLO dataset YAML
 ├── requirements.txt          # Python dependencies
 ├── README.md                 # Project overview and usage
@@ -133,7 +134,7 @@ This helps confirm that the dataset YAML and model list are configured correctly
 Run the default benchmark:
 
 ```bash
-python benchmark_models.py --data /path/to/data.yaml
+python yolo_benchmark_models.py --data /path/to/data.yaml
 ```
 
 By default, the script is designed for benchmark training and validation across the configured model list.
@@ -143,31 +144,31 @@ By default, the script is designed for benchmark training and validation across 
 Run with custom epochs, image size, and batch size:
 
 ```bash
-python benchmark_models.py --data /path/to/data.yaml --epochs 100 --imgsz 640 --batch 8
+python yolo_benchmark_models.py --data /path/to/data.yaml --epochs 100 --imgsz 640 --batch 8
 ```
 
 Run only selected models:
 
 ```bash
-python benchmark_models.py --data /path/to/data.yaml --models YOLOv11m rtdetr-l.pt
+python yolo_benchmark_models.py --data /path/to/data.yaml --models YOLOv11m
 ```
 
 Train from scratch instead of pretrained weights:
 
 ```bash
-python benchmark_models.py --data /path/to/data.yaml --init scratch
+python yolo_benchmark_models.py --data /path/to/data.yaml --init scratch
 ```
 
 Disable resume behavior:
 
 ```bash
-python benchmark_models.py --data /path/to/data.yaml --no-resume
+python yolo_benchmark_models.py --data /path/to/data.yaml --no-resume
 ```
 
 Force rerun even if previous results exist:
 
 ```bash
-python benchmark_models.py --data /path/to/data.yaml --force
+python yolo_benchmark_models.py --data /path/to/data.yaml --force
 ```
 
 ## Default Models
@@ -194,12 +195,8 @@ Current default model groups include:
 * `yolo26l.pt`
 * `yolo26m.pt`
 
-### RT-DETR
 
-* `rtdetr-x.pt`
-* `rtdetr-l.pt`
-
-Additional detection models can be added by creating new `ModelSpec` entries in `benchmark_models.py`.
+Additional detection models can be added by creating new `ModelSpec` entries in `yolo_benchmark_models.py`.
 
 ## Output Files
 
@@ -225,7 +222,7 @@ The summary table includes:
 
 ## Git Ignore Policy
 
-Generated files are ignored by Git so that the repository stays lightweight.
+Generated files are ignored by Git to keep the repository lightweight.
 
 Ignored items include:
 
