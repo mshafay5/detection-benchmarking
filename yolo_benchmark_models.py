@@ -47,30 +47,6 @@ DEFAULT_MODELS: list[ModelSpec] = [
     ModelSpec("YOLOv26x", "yolo26x.pt", "yolo26x.yaml", "yolo"),
     ModelSpec("YOLOv26l", "yolo26l.pt", "yolo26l.yaml", "yolo"),
     ModelSpec("YOLOv26m", "yolo26m.pt", "yolo26m.yaml", "yolo"),
-    ModelSpec("RT-DETRx", "rtdetr-x.pt", "rtdetr-x.yaml", "rtdetr"),
-    ModelSpec("RT-DETRl", "rtdetr-l.pt", "rtdetr-l.yaml", "rtdetr"),
-    ModelSpec(
-        "RT-DETR v2x",
-        None,
-        None,
-        "rtdetr",
-        supported=False,
-        note=(
-            "Unsupported by the installed Ultralytics build. "
-            "Closest supported filename: rtdetr-x.pt."
-        ),
-    ),
-    ModelSpec(
-        "RT-DETR v2l",
-        None,
-        None,
-        "rtdetr",
-        supported=False,
-        note=(
-            "Unsupported by the installed Ultralytics build. "
-            "Closest supported filename: rtdetr-l.pt."
-        ),
-    ),
 ]
 
 
